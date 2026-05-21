@@ -3,920 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jayden Daniel's Foundation | Empowering Communities Through Zero-Fee Fundraising</title>
+    <title>Jayden Daniel's Foundation | Zero-Fee Fundraising</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        :root {
-            --primary: #1a1a2e;
-            --secondary: #16213e;
-            --accent: #e94560;
-            --accent-hover: #d6344e;
-            --light: #f8f9fa;
-            --text: #2d3748;
-            --text-light: #718096;
-            --success: #48bb78;
-            --border: #e2e8f0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--accent), #ff6b6b);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
-            font-size: 0.95rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(233, 69, 96, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-large {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-        }
-
-        .hero {
-            margin-top: 80px;
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: rgba(233, 69, 96, 0.1);
-            border-radius: 50%;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 50%;
-            animation: float 15s infinite ease-in-out reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -30px) scale(1.1); }
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .hero-content h1 span {
-            color: var(--accent);
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            opacity: 0.8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: transform 0.5s;
-        }
-
-        .hero-image:hover img {
-            transform: perspective(1000px) rotateY(0deg);
-        }
-
-        .comparison {
-            padding: 6rem 2rem;
-            background: var(--light);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            font-size: 1.125rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .fee-comparison {
-            background: white;
-            border-radius: 16px;
-            padding: 3rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-top: 3rem;
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-        }
-
-        .comparison-table th {
-            text-align: left;
-            padding: 1rem;
-            border-bottom: 2px solid var(--border);
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .comparison-table td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .comparison-table tr:hover {
-            background: var(--light);
-        }
-
-        .fee-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-
-        .fee-zero {
-            background: #c6f6d5;
-            color: #22543d;
-        }
-
-        .fee-high {
-            background: #fed7d7;
-            color: #742a2a;
-        }
-
-        .fee-medium {
-            background: #feebc8;
-            color: #7c2d12;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .highlight-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .features {
-            padding: 6rem 2rem;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), #ff6b6b);
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-icon {
-            width: 56px;
-            height: 56px;
-            background: rgba(233, 69, 96, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--primary);
-        }
-
-        .feature-card p {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        .how-it-works {
-            padding: 6rem 2rem;
-            background: var(--light);
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-            position: relative;
-        }
-
-        .steps::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 10%;
-            right: 10%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            z-index: 0;
-        }
-
-        .step {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: white;
-            border: 3px solid var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin: 0 auto 1.5rem;
-            position: relative;
-            box-shadow: 0 4px 12px rgba(233, 69, 96, 0.2);
-        }
-
-        .step h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--primary);
-        }
-
-        .step p {
-            color: var(--text-light);
-        }
-
-        .calculator {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .calculator::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .calculator-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .calculator-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 3rem;
-            margin-top: 3rem;
-        }
-
-        .input-group {
-            margin-bottom: 2rem;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .result-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .result-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .result-card.highlight {
-            background: rgba(233, 69, 96, 0.2);
-            border-color: var(--accent);
-        }
-
-        .result-amount {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin: 0.5rem 0;
-        }
-
-        .result-card.highlight .result-amount {
-            color: #4ade80;
-        }
-
-        .result-card:not(.highlight) .result-amount {
-            color: #f87171;
-        }
-
-        .testimonials {
-            padding: 6rem 2rem;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            font-family: 'Playfair Display', serif;
-            font-size: 6rem;
-            color: var(--accent);
-            opacity: 0.2;
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            line-height: 1;
-        }
-
-        .testimonial-text {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            color: var(--text);
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), #ff6b6b);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-        }
-
-        .author-info h4 {
-            color: var(--primary);
-            font-size: 1rem;
-        }
-
-        .author-info p {
-            color: var(--text-light);
-            font-size: 0.875rem;
-        }
-
-        .rating {
-            display: flex;
-            gap: 0.25rem;
-            color: #fbbf24;
-            margin-top: 0.5rem;
-        }
-
-        .contact {
-            padding: 6rem 2rem;
-            background: var(--light);
-        }
-
-        .contact-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .email-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--border);
-            margin-top: 3rem;
-            transition: transform 0.3s;
-        }
-
-        .email-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .email-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--accent), #ff6b6b);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
-        }
-
-        .email-address {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            display: inline-block;
-            padding: 1rem 2rem;
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            transition: all 0.3s;
-            word-break: break-all;
-        }
-
-        .email-address:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: scale(1.02);
-        }
-
-        .email-note {
-            margin-top: 1.5rem;
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .cta {
-            padding: 6rem 2rem;
-            background: var(--light);
-            text-align: center;
-        }
-
-        .cta-box {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 4rem;
-            border-radius: 24px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--border);
-        }
-
-        .cta-box h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .cta-box p {
-            font-size: 1.125rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand .logo {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .footer-brand p {
-            opacity: 0.8;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-email {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.3s;
-        }
-
-        .footer-email:hover {
-            opacity: 0.8;
-        }
-
-        .footer-links h4 {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent);
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--primary);
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-stats {
-                justify-content: center;
-            }
-
-            .hero-image {
-                order: -1;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .steps::before {
-                display: none;
-            }
-
-            .result-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .comparison-table {
-                font-size: 0.875rem;
-            }
-
-            .highlight-box {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .email-address {
-                font-size: 1.1rem;
-                padding: 0.75rem 1rem;
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s, transform 0.6s;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--light);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-hover);
-        }
+        :root{--primary:#1a1a2e;--secondary:#16213e;--accent:#e94560;--accent-hover:#d6344e;--light:#f8f9fa;--text:#2d3748;--text-light:#718096;--success:#48bb78;--border:#e2e8f0}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.6;overflow-x:hidden}
+        nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);z-index:1000;border-bottom:1px solid var(--border);transition:all .3s ease}
+        .nav-container{max-width:1200px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}
+        .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--primary);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+        .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),#ff6b6b);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white}
+        .nav-links{display:flex;gap:2.5rem;align-items:center}
+        .nav-links a{text-decoration:none;color:var(--text);font-weight:500;font-size:.95rem;transition:color .3s;position:relative}
+        .nav-links a:hover{color:var(--accent)}
+        .nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s}
+        .nav-links a:hover::after{width:100%}
+        .btn{padding:.75rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;transition:all .3s;border:none;font-size:.95rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
+        .btn-primary{background:var(--accent);color:white}.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 4px 12px rgba(233,69,96,.3)}
+        .btn-outline{background:transparent;color:var(--primary);border:2px solid var(--primary)}.btn-outline:hover{background:var(--primary);color:white}
+        .btn-ghost{background:transparent;color:var(--text);border:2px solid var(--border)}.btn-ghost:hover{background:var(--light);border-color:var(--accent);color:var(--accent)}
+        .btn-large{padding:1rem 2rem;font-size:1.1rem}
+        .mobile-menu-btn{display:none;background:none;border:none;color:var(--primary);cursor:pointer;padding:.5rem;z-index:1001}
+        .mobile-menu{display:none;position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100vh;background:white;box-shadow:-5px 0 25px rgba(0,0,0,.15);z-index:999;padding:6rem 2rem 2rem;transition:right .3s ease;flex-direction:column;gap:1.5rem}
+        .mobile-menu.active{right:0}
+        .mobile-menu a{text-decoration:none;color:var(--text);font-weight:500;font-size:1.1rem;padding:.75rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.75rem}
+        .mobile-menu a:hover{color:var(--accent)}.mobile-menu .btn{width:100%;justify-content:center;margin-top:.5rem}
+        .mobile-menu-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:998;opacity:0;transition:opacity .3s}
+        .mobile-menu-overlay.active{display:block;opacity:1}
+        .hero{margin-top:80px;padding:6rem 2rem;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:white;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-50%;right:-10%;width:600px;height:600px;background:rgba(233,69,96,.1);border-radius:50%;animation:float 20s infinite ease-in-out}
+        .hero::after{content:'';position:absolute;bottom:-30%;left:-5%;width:400px;height:400px;background:rgba(255,255,255,.03);border-radius:50%;animation:float 15s infinite ease-in-out reverse}
+        @keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-30px) scale(1.1)}}
+        .hero-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+        .hero-content h1{font-family:'Playfair Display',serif;font-size:3.5rem;line-height:1.1;margin-bottom:1.5rem;font-weight:700}
+        .hero-content h1 span{color:var(--accent)}.hero-content p{font-size:1.25rem;opacity:.9;margin-bottom:2rem;line-height:1.7}
+        .hero-stats{display:flex;gap:2rem;margin-top:3rem}.stat{text-align:center}
+        .stat-number{font-size:2rem;font-weight:800;color:var(--accent);display:block}
+        .stat-label{font-size:.875rem;opacity:.8;text-transform:uppercase;letter-spacing:1px}
+        .hero-image{position:relative}.hero-image img{width:100%;border-radius:20px;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);transform:perspective(1000px) rotateY(-5deg);transition:transform .5s}
+        .hero-image:hover img{transform:perspective(1000px) rotateY(0deg)}
+        .comparison{padding:6rem 2rem;background:var(--light)}.container{max-width:1200px;margin:0 auto}
+        .section-header{text-align:center;margin-bottom:4rem}.section-header h2{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--primary);margin-bottom:1rem}
+        .section-header p{font-size:1.125rem;color:var(--text-light);max-width:600px;margin:0 auto}
+        .fee-comparison{background:white;border-radius:16px;padding:3rem;box-shadow:0 4px 6px -1px rgba(0,0,0,.1);margin-top:3rem}
+        .comparison-table{width:100%;border-collapse:collapse;margin-top:2rem}.comparison-table th{text-align:left;padding:1rem;border-bottom:2px solid var(--border);font-weight:600;color:var(--primary)}
+        .comparison-table td{padding:1rem;border-bottom:1px solid var(--border)}.comparison-table tr:hover{background:var(--light)}
+        .fee-badge{display:inline-block;padding:.25rem .75rem;border-radius:20px;font-size:.875rem;font-weight:600}
+        .fee-zero{background:#c6f6d5;color:#22543d}.fee-high{background:#fed7d7;color:#742a2a}.fee-medium{background:#feebc8;color:#7c2d12}
+        .highlight-box{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:2rem;border-radius:12px;margin-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .highlight-box h3{font-size:1.5rem;margin-bottom:.5rem}
     </style>
 </head>
 <body>
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#features"><i data-lucide="grid"></i> Features</a>
+        <a href="#how-it-works"><i data-lucide="play-circle"></i> How It Works</a>
+        <a href="#calculator"><i data-lucide="calculator"></i> Savings Calculator</a>
+        <a href="#testimonials"><i data-lucide="message-circle"></i> Stories</a>
+        <a href="#contact"><i data-lucide="mail"></i> Contact Us</a>
+        <a href="mailto:Jayden.daniiels.5@gmail.com?subject=Create%20Account" class="btn btn-primary"><i data-lucide="user-plus"></i> Create Account</a>
+        <a href="mailto:Jayden.daniiels.5@gmail.com?subject=Login%20Request" class="btn btn-ghost"><i data-lucide="log-in"></i> Login</a>
+    </div>
+
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-icon">
-                    <i data-lucide="heart-handshake"></i>
-                </div>
+                <div class="logo-icon"><i data-lucide="heart-handshake"></i></div>
                 Jayden Daniel's Foundation
             </a>
             <div class="nav-links">
@@ -925,11 +79,10 @@
                 <a href="#calculator">Savings Calculator</a>
                 <a href="#testimonials">Stories</a>
                 <a href="#contact" class="btn btn-outline">Contact Us</a>
-                <a href="#donate" class="btn btn-primary">Start Fundraising</a>
+                <a href="mailto:Jayden.daniiels.5@gmail.com?subject=Create%20Account" class="btn btn-primary">Create Account</a>
+                <a href="mailto:Jayden.daniiels.5@gmail.com?subject=Login%20Request" class="btn btn-ghost">Login</a>
             </div>
-            <button class="mobile-menu-btn">
-                <i data-lucide="menu"></i>
-            </button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
@@ -938,29 +91,14 @@
             <div class="hero-content">
                 <h1>Every Dollar Counts.<br><span>Zero Fees.</span><br>Maximum Impact.</h1>
                 <p>Jayden Daniel's Foundation is revolutionizing nonprofit fundraising. Unlike other platforms that take 3-10% of every donation, we ensure 100% of every contribution goes directly to the causes that matter most.</p>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <a href="#donate" class="btn btn-primary btn-large">
-                        <i data-lucide="heart"></i>
-                        Start Your Campaign
-                    </a>
-                    <a href="#how-it-works" class="btn btn-outline btn-large" style="color: white; border-color: white;">
-                        <i data-lucide="play-circle"></i>
-                        See How It Works
-                    </a>
+                <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                    <a href="#donate" class="btn btn-primary btn-large"><i data-lucide="heart"></i> Start Your Campaign</a>
+                    <a href="#how-it-works" class="btn btn-outline btn-large" style="color:white;border-color:white;"><i data-lucide="play-circle"></i> See How It Works</a>
                 </div>
                 <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">$50M+</span>
-                        <span class="stat-label">Raised</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">5,000+</span>
-                        <span class="stat-label">Causes Supported</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">$0</span>
-                        <span class="stat-label">Platform Fees</span>
-                    </div>
+                    <div class="stat"><span class="stat-number">$50M+</span><span class="stat-label">Raised</span></div>
+                    <div class="stat"><span class="stat-number">5,000+</span><span class="stat-label">Causes Supported</span></div>
+                    <div class="stat"><span class="stat-number">$0</span><span class="stat-label">Platform Fees</span></div>
                 </div>
             </div>
             <div class="hero-image">
@@ -975,285 +113,131 @@
                 <h2>Stop Losing Money to Platform Fees</h2>
                 <p>When you raise $10,000 on other platforms, you could lose up to $950 in fees. With Jayden Daniel's Foundation, you keep every penny.</p>
             </div>
-
             <div class="fee-comparison fade-in">
                 <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Platform</th>
-                            <th>Platform Fee</th>
-                            <th>Processing Fee</th>
-                            <th>Monthly Cost</th>
-                            <th>Fees on $10,000</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Platform</th><th>Platform Fee</th><th>Processing Fee</th><th>Monthly Cost</th><th>Fees on $10,000</th></tr></thead>
                     <tbody>
-                        <tr style="background: rgba(233, 69, 96, 0.05); font-weight: 600;">
-                            <td style="color: var(--accent); font-weight: 700;">Jayden Daniel's Foundation</td>
-                            <td><span class="fee-badge fee-zero">0%</span></td>
-                            <td><span class="fee-badge fee-zero">$0</span></td>
-                            <td><span class="fee-badge fee-zero">$0</span></td>
-                            <td style="color: var(--success); font-weight: 700;">$0</td>
-                        </tr>
-                        <tr>
-                            <td>GoFundMe Charity</td>
-                            <td><span class="fee-badge fee-zero">0%</span></td>
-                            <td><span class="fee-badge fee-medium">2.9% + $0.30</span></td>
-                            <td><span class="fee-badge fee-zero">$0</span></td>
-                            <td style="color: var(--accent);">~$440</td>
-                        </tr>
-                        <tr>
-                            <td>Donorbox</td>
-                            <td><span class="fee-badge fee-medium">1.5%</span></td>
-                            <td><span class="fee-badge fee-medium">2.9% + $0.30</span></td>
-                            <td><span class="fee-badge fee-zero">$0</span></td>
-                            <td style="color: var(--accent);">~$665</td>
-                        </tr>
-                        <tr>
-                            <td>Kickstarter</td>
-                            <td><span class="fee-badge fee-high">5%</span></td>
-                            <td><span class="fee-badge fee-medium">3% + $0.20</span></td>
-                            <td><span class="fee-badge fee-zero">$0</span></td>
-                            <td style="color: var(--accent);">~$950</td>
-                        </tr>
-                        <tr>
-                            <td>Classy</td>
-                            <td><span class="fee-badge fee-high">Custom</span></td>
-                            <td><span class="fee-badge fee-medium">2.2% + $0.30</span></td>
-                            <td><span class="fee-badge fee-high">Varies</span></td>
-                            <td style="color: var(--accent);">$400+</td>
-                        </tr>
+                        <tr style="background:rgba(233,69,96,.05);font-weight:600;"><td style="color:var(--accent);font-weight:700;">Jayden Daniel's Foundation</td><td><span class="fee-badge fee-zero">0%</span></td><td><span class="fee-badge fee-zero">$0</span></td><td><span class="fee-badge fee-zero">$0</span></td><td style="color:var(--success);font-weight:700;">$0</td></tr>
+                        <tr><td>GoFundMe Charity</td><td><span class="fee-badge fee-zero">0%</span></td><td><span class="fee-badge fee-medium">2.9% + $0.30</span></td><td><span class="fee-badge fee-zero">$0</span></td><td style="color:var(--accent);">~$440</td></tr>
+                        <tr><td>Donorbox</td><td><span class="fee-badge fee-medium">1.5%</span></td><td><span class="fee-badge fee-medium">2.9% + $0.30</span></td><td><span class="fee-badge fee-zero">$0</span></td><td style="color:var(--accent);">~$665</td></tr>
+                        <tr><td>Kickstarter</td><td><span class="fee-badge fee-high">5%</span></td><td><span class="fee-badge fee-medium">3% + $0.20</span></td><td><span class="fee-badge fee-zero">$0</span></td><td style="color:var(--accent);">~$950</td></tr>
+                        <tr><td>Classy</td><td><span class="fee-badge fee-high">Custom</span></td><td><span class="fee-badge fee-medium">2.2% + $0.30</span></td><td><span class="fee-badge fee-high">Varies</span></td><td style="color:var(--accent);">$400+</td></tr>
                     </tbody>
                 </table>
-
                 <div class="highlight-box">
-                    <div>
-                        <h3>The Jayden Daniel's Difference</h3>
-                        <p style="opacity: 0.9; margin-top: 0.5rem;">We operate on a voluntary donor tip model. Supporters can optionally contribute to keep our platform running, but your organization never pays a cent.</p>
-                    </div>
-                    <a href="#calculator" class="btn btn-primary" style="background: white; color: var(--primary);">
-                        Calculate Your Savings
-                        <i data-lucide="arrow-right"></i>
-                    </a>
+                    <div><h3>The Jayden Daniel's Difference</h3><p style="opacity:.9;margin-top:.5rem;">We operate on a voluntary donor tip model. Supporters can optionally contribute to keep our platform running, but your organization never pays a cent.</p></div>
+                    <a href="#calculator" class="btn btn-primary" style="background:white;color:var(--primary);">Calculate Your Savings <i data-lucide="arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
-
+        .features{padding:6rem 2rem}.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
+        .feature-card{background:white;padding:2.5rem;border-radius:16px;border:1px solid var(--border);transition:all .3s;position:relative;overflow:hidden}
+        .feature-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--accent),#ff6b6b);transform:scaleX(0);transition:transform .3s}
+        .feature-card:hover{transform:translateY(-5px);box-shadow:0 20px 25px -5px rgba(0,0,0,.1)}.feature-card:hover::before{transform:scaleX(1)}
+        .feature-icon{width:56px;height:56px;background:rgba(233,69,96,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:1.5rem}
+        .feature-card h3{font-size:1.25rem;margin-bottom:.75rem;color:var(--primary)}.feature-card p{color:var(--text-light);line-height:1.6}
+        .how-it-works{padding:6rem 2rem;background:var(--light)}.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:3rem;margin-top:4rem;position:relative}
+        .steps::before{content:'';position:absolute;top:40px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--accent),transparent);z-index:0}
+        .step{text-align:center;position:relative;z-index:1}.step-number{width:80px;height:80px;background:white;border:3px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;color:var(--accent);margin:0 auto 1.5rem;position:relative;box-shadow:0 4px 12px rgba(233,69,96,.2)}
+        .step h3{font-size:1.25rem;margin-bottom:.75rem;color:var(--primary)}.step p{color:var(--text-light)}
+        .calculator{padding:6rem 2rem;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;position:relative;overflow:hidden}
+        .calculator::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+        .calculator-container{max-width:800px;margin:0 auto;position:relative;z-index:1}
+        .calculator-box{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:3rem;margin-top:3rem}
+        .input-group{margin-bottom:2rem}.input-group label{display:block;margin-bottom:.75rem;font-weight:600}
+        .input-group input{width:100%;padding:1rem;border:2px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);border-radius:8px;color:white;font-size:1.25rem;font-weight:700}
+        .input-group input:focus{outline:none;border-color:var(--accent)}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
+        .result-card{background:rgba(255,255,255,.1);padding:2rem;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,.2)}
+        .result-card.highlight{background:rgba(233,69,96,.2);border-color:var(--accent)}.result-amount{font-size:2.5rem;font-weight:800;margin:.5rem 0}
+        .result-card.highlight .result-amount{color:#4ade80}.result-card:not(.highlight) .result-amount{color:#f87171}
     <section class="features" id="features">
         <div class="container">
-            <div class="section-header">
-                <h2>Everything You Need to Fundraise</h2>
-                <p>From donation forms to event management, peer-to-peer campaigns to donor CRM — all completely free.</p>
-            </div>
-
+            <div class="section-header"><h2>Everything You Need to Fundraise</h2><p>From donation forms to event management, peer-to-peer campaigns to donor CRM — all completely free.</p></div>
             <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i data-lucide="heart"></i>
-                    </div>
-                    <h3>Custom Donation Forms</h3>
-                    <p>Create branded donation pages with suggested amounts, recurring giving options, and custom fields. Embed anywhere or use our hosted pages.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i data-lucide="ticket"></i>
-                    </div>
-                    <h3>Event Ticketing</h3>
-                    <p>Sell tickets for galas, fundraisers, and community events. Manage registrations, check-ins, and seating charts at no cost.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i data-lucide="users"></i>
-                    </div>
-                    <h3>Peer-to-Peer Fundraising</h3>
-                    <p>Empower your supporters to create personal fundraising pages. Perfect for marathons, birthday campaigns, and team challenges.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i data-lucide="shopping-bag"></i>
-                    </div>
-                    <h3>Online Store</h3>
-                    <p>Sell merchandise, digital products, and cause-related items. Keep 100% of sales revenue to support your mission.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i data-lucide="database"></i>
-                    </div>
-                    <h3>Donor Management</h3>
-                    <p>Built-in CRM to track donor history, segment audiences, add notes, and automate personalized outreach campaigns.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i data-lucide="file-text"></i>
-                    </div>
-                    <h3>Automatic Tax Receipts</h3>
-                    <p>Instantly generate and email tax-compliant donation receipts. Customize with your logo and required legal language.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i data-lucide="smartphone"></i>
-                    </div>
-                    <h3>Tap to Pay</h3>
-                    <p>Accept in-person donations using just your iPhone. No terminal hardware needed — perfect for events and street fundraising.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i data-lucide="bar-chart-3"></i>
-                    </div>
-                    <h3>Analytics & Reporting</h3>
-                    <p>Real-time dashboards showing campaign performance, donor trends, and revenue forecasts. Export data anytime.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i data-lucide="refresh-cw"></i>
-                    </div>
-                    <h3>Recurring Memberships</h3>
-                    <p>Set up monthly, quarterly, or annual membership programs with automated billing and member-only content access.</p>
-                </div>
+                <div class="feature-card fade-in"><div class="feature-icon"><i data-lucide="heart"></i></div><h3>Custom Donation Forms</h3><p>Create branded donation pages with suggested amounts, recurring giving options, and custom fields. Embed anywhere or use our hosted pages.</p></div>
+                <div class="feature-card fade-in"><div class="feature-icon"><i data-lucide="ticket"></i></div><h3>Event Ticketing</h3><p>Sell tickets for galas, fundraisers, and community events. Manage registrations, check-ins, and seating charts at no cost.</p></div>
+                <div class="feature-card fade-in"><div class="feature-icon"><i data-lucide="users"></i></div><h3>Peer-to-Peer Fundraising</h3><p>Empower your supporters to create personal fundraising pages. Perfect for marathons, birthday campaigns, and team challenges.</p></div>
+                <div class="feature-card fade-in"><div class="feature-icon"><i data-lucide="shopping-bag"></i></div><h3>Online Store</h3><p>Sell merchandise, digital products, and cause-related items. Keep 100% of sales revenue to support your mission.</p></div>
+                <div class="feature-card fade-in"><div class="feature-icon"><i data-lucide="database"></i></div><h3>Donor Management</h3><p>Built-in CRM to track donor history, segment audiences, add notes, and automate personalized outreach campaigns.</p></div>
+                <div class="feature-card fade-in"><div class="feature-icon"><i data-lucide="file-text"></i></div><h3>Automatic Tax Receipts</h3><p>Instantly generate and email tax-compliant donation receipts. Customize with your logo and required legal language.</p></div>
+                <div class="feature-card fade-in"><div class="feature-icon"><i data-lucide="smartphone"></i></div><h3>Tap to Pay</h3><p>Accept in-person donations using just your iPhone. No terminal hardware needed — perfect for events and street fundraising.</p></div>
+                <div class="feature-card fade-in"><div class="feature-icon"><i data-lucide="bar-chart-3"></i></div><h3>Analytics & Reporting</h3><p>Real-time dashboards showing campaign performance, donor trends, and revenue forecasts. Export data anytime.</p></div>
+                <div class="feature-card fade-in"><div class="feature-icon"><i data-lucide="refresh-cw"></i></div><h3>Recurring Memberships</h3><p>Set up monthly, quarterly, or annual membership programs with automated billing and member-only content access.</p></div>
             </div>
         </div>
     </section>
 
     <section class="how-it-works" id="how-it-works">
         <div class="container">
-            <div class="section-header">
-                <h2>Launch Your Campaign in Minutes</h2>
-                <p>No contracts, no credit card required, no technical expertise needed. Just sign up and start making a difference.</p>
-            </div>
-
+            <div class="section-header"><h2>Launch Your Campaign in Minutes</h2><p>No contracts, no credit card required, no technical expertise needed. Just sign up and start making a difference.</p></div>
             <div class="steps">
-                <div class="step fade-in">
-                    <div class="step-number">1</div>
-                    <h3>Create Your Form</h3>
-                    <p>Customize your donation page with your branding, mission statement, suggested amounts, and impact metrics.</p>
-                </div>
-                <div class="step fade-in">
-                    <div class="step-number">2</div>
-                    <h3>Share Your Link</h3>
-                    <p>Embed on your website, post to social media, or send via email. Mobile-optimized for donors on any device.</p>
-                </div>
-                <div class="step fade-in">
-                    <div class="step-number">3</div>
-                    <h3>Collect Donations</h3>
-                    <p>Accept credit cards, Apple Pay, Google Pay, ACH transfers, and checks. All payment processing is handled securely.</p>
-                </div>
-                <div class="step fade-in">
-                    <div class="step-number">4</div>
-                    <h3>Receive 100%</h3>
-                    <p>Funds deposited directly to your bank account weekly. Every dollar goes to your cause — we never take a cut.</p>
-                </div>
+                <div class="step fade-in"><div class="step-number">1</div><h3>Create Your Form</h3><p>Customize your donation page with your branding, mission statement, suggested amounts, and impact metrics.</p></div>
+                <div class="step fade-in"><div class="step-number">2</div><h3>Share Your Link</h3><p>Embed on your website, post to social media, or send via email. Mobile-optimized for donors on any device.</p></div>
+                <div class="step fade-in"><div class="step-number">3</div><h3>Collect Donations</h3><p>Accept credit cards, Apple Pay, Google Pay, ACH transfers, and checks. All payment processing is handled securely.</p></div>
+                <div class="step fade-in"><div class="step-number">4</div><h3>Receive 100%</h3><p>Funds deposited directly to your bank account weekly. Every dollar goes to your cause — we never take a cut.</p></div>
             </div>
         </div>
     </section>
 
     <section class="calculator" id="calculator">
         <div class="calculator-container">
-            <div class="section-header" style="color: white;">
-                <h2>See How Much You'll Save</h2>
-                <p style="opacity: 0.9;">Compare what you actually keep when fundraising through Jayden Daniel's Foundation versus other platforms.</p>
-            </div>
-
+            <div class="section-header" style="color:white;"><h2>See How Much You'll Save</h2><p style="opacity:.9;">Compare what you actually keep when fundraising through Jayden Daniel's Foundation versus other platforms.</p></div>
             <div class="calculator-box">
-                <div class="input-group">
-                    <label for="amount">How much do you plan to raise?</label>
-                    <input type="number" id="amount" value="10000" min="100" step="100">
-                </div>
-
+                <div class="input-group"><label for="amount">How much do you plan to raise?</label><input type="number" id="amount" value="10000" min="100" step="100"></div>
                 <div class="result-grid">
-                    <div class="result-card highlight">
-                        <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">With Jayden Daniel's</div>
-                        <div class="result-amount" id="jayden-amount">$10,000</div>
-                        <div style="font-size: 0.875rem; opacity: 0.8;">You keep 100%</div>
-                    </div>
-                    <div class="result-card">
-                        <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">With Other Platforms</div>
-                        <div class="result-amount" id="other-amount">$9,050</div>
-                        <div style="font-size: 0.875rem; opacity: 0.8;">After average 9.5% in fees</div>
-                    </div>
+                    <div class="result-card highlight"><div style="font-size:.875rem;opacity:.8;text-transform:uppercase;letter-spacing:1px;">With Jayden Daniel's</div><div class="result-amount" id="jayden-amount">$10,000</div><div style="font-size:.875rem;opacity:.8;">You keep 100%</div></div>
+                    <div class="result-card"><div style="font-size:.875rem;opacity:.8;text-transform:uppercase;letter-spacing:1px;">With Other Platforms</div><div class="result-amount" id="other-amount">$9,050</div><div style="font-size:.875rem;opacity:.8;">After average 9.5% in fees</div></div>
                 </div>
-
-                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); text-align: center;">
-                    <p style="font-size: 1.25rem; margin-bottom: 1rem;">
-                        You could save <strong id="savings" style="color: #4ade80; font-size: 1.5rem;">$950</strong> by switching to Jayden Daniel's Foundation
-                    </p>
-                    <a href="#donate" class="btn btn-primary btn-large" style="margin-top: 1rem;">
-                        Start Saving Today
-                        <i data-lucide="arrow-right"></i>
-                    </a>
+                <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.2);text-align:center;">
+                    <p style="font-size:1.25rem;margin-bottom:1rem;">You could save <strong id="savings" style="color:#4ade80;font-size:1.5rem;">$950</strong> by switching to Jayden Daniel's Foundation</p>
+                    <a href="#donate" class="btn btn-primary btn-large" style="margin-top:1rem;">Start Saving Today <i data-lucide="arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
-
+        .testimonials{padding:6rem 2rem}.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem;margin-top:3rem}
+        .testimonial-card{background:white;padding:2.5rem;border-radius:16px;border:1px solid var(--border);position:relative}
+        .testimonial-card::before{content:'"';font-family:'Playfair Display',serif;font-size:6rem;color:var(--accent);opacity:.2;position:absolute;top:-10px;left:20px;line-height:1}
+        .testimonial-text{font-size:1.1rem;line-height:1.7;margin-bottom:1.5rem;color:var(--text);position:relative;z-index:1}
+        .testimonial-author{display:flex;align-items:center;gap:1rem}.author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#ff6b6b);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+        .author-info h4{color:var(--primary);font-size:1rem}.author-info p{color:var(--text-light);font-size:.875rem}
+        .rating{display:flex;gap:.25rem;color:#fbbf24;margin-top:.5rem}
+        .contact{padding:6rem 2rem;background:var(--light)}.contact-container{max-width:800px;margin:0 auto;text-align:center}
+        .email-card{background:white;padding:3rem;border-radius:20px;box-shadow:0 10px 25px -5px rgba(0,0,0,.1);border:1px solid var(--border);margin-top:3rem;transition:transform .3s}
+        .email-card:hover{transform:translateY(-5px)}.email-icon{width:80px;height:80px;background:linear-gradient(135deg,var(--accent),#ff6b6b);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;margin:0 auto 1.5rem;box-shadow:0 10px 20px rgba(233,69,96,.3)}
+        .email-address{font-size:1.5rem;font-weight:700;color:var(--primary);text-decoration:none;display:inline-block;padding:1rem 2rem;border:2px solid var(--border);border-radius:12px;transition:all .3s;word-break:break-all}
+        .email-address:hover{border-color:var(--accent);color:var(--accent);transform:scale(1.02)}.email-note{margin-top:1.5rem;color:var(--text-light);font-size:.95rem}
+        .cta{padding:6rem 2rem;background:var(--light);text-align:center}.cta-box{max-width:800px;margin:0 auto;background:white;padding:4rem;border-radius:24px;box-shadow:0 20px 25px -5px rgba(0,0,0,.1);border:1px solid var(--border)}
+        .cta-box h2{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--primary);margin-bottom:1rem}
+        .cta-box p{font-size:1.125rem;color:var(--text-light);margin-bottom:2rem}
+        footer{background:var(--primary);color:white;padding:4rem 2rem 2rem}
+        .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:3rem}
+        .footer-brand .logo{color:white;margin-bottom:1rem}.footer-brand p{opacity:.8;line-height:1.7;margin-bottom:1.5rem}
+        .footer-email{display:inline-flex;align-items:center;gap:.5rem;color:var(--accent);text-decoration:none;font-weight:600;transition:opacity .3s}.footer-email:hover{opacity:.8}
+        .footer-links h4{font-size:1rem;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent)}
+        .footer-links ul{list-style:none}.footer-links li{margin-bottom:.75rem}
+        .footer-links a{color:rgba(255,255,255,.8);text-decoration:none;transition:color .3s}.footer-links a:hover{color:var(--accent)}
+        .footer-bottom{max-width:1200px;margin:0 auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .fade-in{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}.fade-in.visible{opacity:1;transform:translateY(0)}
+        ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--light)}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:5px}::-webkit-scrollbar-thumb:hover{background:var(--accent-hover)}
+        @media(max-width:768px){.nav-links{display:none}.mobile-menu-btn{display:block}.hero-container{grid-template-columns:1fr;text-align:center}.hero-content h1{font-size:2.5rem}.hero-stats{justify-content:center}.hero-image{order:-1}.footer-grid{grid-template-columns:1fr;gap:2rem}.steps::before{display:none}.result-grid{grid-template-columns:1fr}.comparison-table{font-size:.875rem}.highlight-box{flex-direction:column;text-align:center}.email-address{font-size:1.1rem;padding:.75rem 1rem}}
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <div class="section-header">
-                <h2>Trusted by Nonprofits Everywhere</h2>
-                <p>See why thousands of organizations have switched to Jayden Daniel's Foundation for their fundraising needs.</p>
-            </div>
-
+            <div class="section-header"><h2>Trusted by Nonprofits Everywhere</h2><p>See why thousands of organizations have switched to Jayden Daniel's Foundation for their fundraising needs.</p></div>
             <div class="testimonials-grid">
                 <div class="testimonial-card fade-in">
                     <p class="testimonial-text">"We moved from a platform where monthly and annual fees had a real impact on our bottom line. Jayden Daniel's Foundation doesn't charge anything — we receive every dollar our donors give. It's transformed our ability to serve the community."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MR</div>
-                        <div class="author-info">
-                            <h4>Maria Rodriguez</h4>
-                            <p>Executive Director, Hope Community Center</p>
-                            <div class="rating">
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="testimonial-author"><div class="author-avatar">MR</div><div class="author-info"><h4>Maria Rodriguez</h4><p>Executive Director, Hope Community Center</p><div class="rating"><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i></div></div></div>
                 </div>
-
                 <div class="testimonial-card fade-in">
                     <p class="testimonial-text">"The donor management tools are incredible for a free platform. We can segment our donors, track engagement, and send personalized thank-yous automatically. Our donor retention rate has increased by 40% since switching."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JC</div>
-                        <div class="author-info">
-                            <h4>James Chen</h4>
-                            <p>Development Manager, Youth Arts Initiative</p>
-                            <div class="rating">
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="testimonial-author"><div class="author-avatar">JC</div><div class="author-info"><h4>James Chen</h4><p>Development Manager, Youth Arts Initiative</p><div class="rating"><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i></div></div></div>
                 </div>
-
                 <div class="testimonial-card fade-in">
                     <p class="testimonial-text">"We were paying over $2,000 a year in platform fees alone. With Jayden Daniel's Foundation, that's money that now goes directly to our animal rescue programs. The setup took under 10 minutes and the support team is phenomenal."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SK</div>
-                        <div class="author-info">
-                            <h4>Sarah Kim</h4>
-                            <p>Founder, Second Chance Animal Rescue</p>
-                            <div class="rating">
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="testimonial-author"><div class="author-avatar">SK</div><div class="author-info"><h4>Sarah Kim</h4><p>Founder, Second Chance Animal Rescue</p><div class="rating"><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i></div></div></div>
                 </div>
             </div>
         </div>
@@ -1261,20 +245,11 @@
 
     <section class="contact" id="contact">
         <div class="contact-container">
-            <div class="section-header">
-                <h2>Get in Touch</h2>
-                <p>Have questions about starting your campaign? We'd love to hear from you. Reach out anytime.</p>
-            </div>
-
+            <div class="section-header"><h2>Get in Touch</h2><p>Have questions about starting your campaign? We'd love to hear from you. Reach out anytime.</p></div>
             <div class="email-card fade-in">
-                <div class="email-icon">
-                    <i data-lucide="mail" style="width: 40px; height: 40px;"></i>
-                </div>
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--primary); margin-bottom: 1.5rem;">Contact Us via Email</h3>
-                <a href="mailto:Jayden.daniiels.5@gmail.com" class="email-address">
-                    <i data-lucide="send" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 0.5rem;"></i>
-                    Jayden.daniiels.5@gmail.com
-                </a>
+                <div class="email-icon"><i data-lucide="mail" style="width:40px;height:40px;"></i></div>
+                <h3 style="font-family:'Playfair Display',serif;font-size:1.75rem;color:var(--primary);margin-bottom:1.5rem;">Contact Us via Email</h3>
+                <a href="mailto:Jayden.daniiels.5@gmail.com" class="email-address"><i data-lucide="send" style="width:20px;height:20px;vertical-align:middle;margin-right:.5rem;"></i>Jayden.daniiels.5@gmail.com</a>
                 <p class="email-note">We typically respond within 24 hours. For urgent inquiries, please include "URGENT" in your subject line.</p>
             </div>
         </div>
@@ -1284,144 +259,47 @@
         <div class="cta-box">
             <h2>Ready to Keep 100% of Your Donations?</h2>
             <p>Join 5,000+ nonprofits already using Jayden Daniel's Foundation to maximize their impact. No fees, no contracts, no catch.</p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
-                <a href="mailto:Jayden.daniiels.5@gmail.com?subject=Start%20My%20Fundraising%20Campaign" class="btn btn-primary btn-large">
-                    <i data-lucide="rocket"></i>
-                    Create Free Account
-                </a>
-                <a href="mailto:Jayden.daniiels.5@gmail.com?subject=Schedule%20a%20Demo" class="btn btn-outline btn-large">
-                    <i data-lucide="calendar"></i>
-                    Schedule a Demo
-                </a>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+                <a href="mailto:Jayden.daniiels.5@gmail.com?subject=Start%20My%20Fundraising%20Campaign" class="btn btn-primary btn-large"><i data-lucide="rocket"></i> Create Free Account</a>
+                <a href="mailto:Jayden.daniiels.5@gmail.com?subject=Schedule%20a%20Demo" class="btn btn-outline btn-large"><i data-lucide="calendar"></i> Schedule a Demo</a>
             </div>
-            <p style="margin-top: 2rem; font-size: 0.875rem; color: var(--text-light);">
-                <i data-lucide="shield-check" style="width: 16px; height: 16px; display: inline; vertical-align: middle;"></i>
-                SOC 2 Type II Certified • PCI DSS Compliant • 256-bit SSL Encryption
-            </p>
+            <p style="margin-top:2rem;font-size:.875rem;color:var(--text-light);"><i data-lucide="shield-check" style="width:16px;height:16px;display:inline;vertical-align:middle;"></i> SOC 2 Type II Certified • PCI DSS Compliant • 256-bit SSL Encryption</p>
         </div>
     </section>
 
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <a href="#" class="logo">
-                    <div class="logo-icon">
-                        <i data-lucide="heart-handshake"></i>
-                    </div>
-                    Jayden Daniel's Foundation
-                </a>
+                <a href="#" class="logo"><div class="logo-icon"><i data-lucide="heart-handshake"></i></div>Jayden Daniel's Foundation</a>
                 <p>Empowering nonprofits to do more good by eliminating fundraising fees. Every dollar donated should reach its intended cause.</p>
-                <a href="mailto:Jayden.daniiels.5@gmail.com" class="footer-email">
-                    <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
-                    Jayden.daniiels.5@gmail.com
-                </a>
+                <a href="mailto:Jayden.daniiels.5@gmail.com" class="footer-email"><i data-lucide="mail" style="width:18px;height:18px;"></i>Jayden.daniiels.5@gmail.com</a>
             </div>
-            <div class="footer-links">
-                <h4>Product</h4>
-                <ul>
-                    <li><a href="#">Donation Forms</a></li>
-                    <li><a href="#">Event Ticketing</a></li>
-                    <li><a href="#">Peer-to-Peer</a></li>
-                    <li><a href="#">Online Store</a></li>
-                    <li><a href="#">Memberships</a></li>
-                    <li><a href="#">Donor CRM</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Guides</a></li>
-                    <li><a href="#">Webinars</a></li>
-                    <li><a href="#">Case Studies</a></li>
-                    <li><a href="#">API Documentation</a></li>
-                    <li><a href="#">Help Center</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Press Kit</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
+            <div class="footer-links"><h4>Product</h4><ul><li><a href="#">Donation Forms</a></li><li><a href="#">Event Ticketing</a></li><li><a href="#">Peer-to-Peer</a></li><li><a href="#">Online Store</a></li><li><a href="#">Memberships</a></li><li><a href="#">Donor CRM</a></li></ul></div>
+            <div class="footer-links"><h4>Resources</h4><ul><li><a href="#">Blog</a></li><li><a href="#">Guides</a></li><li><a href="#">Webinars</a></li><li><a href="#">Case Studies</a></li><li><a href="#">API Documentation</a></li><li><a href="#">Help Center</a></li></ul></div>
+            <div class="footer-links"><h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Careers</a></li><li><a href="#">Press Kit</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul></div>
         </div>
         <div class="footer-bottom">
             <p> 2026 Jayden Daniel's Foundation. All rights reserved. A 501(c)(3) nonprofit organization.</p>
-            <div style="display: flex; gap: 2rem; align-items: center;">
-                <a href="mailto:Jayden.daniiels.5@gmail.com" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.5rem;">
-                    <i data-lucide="mail" style="width: 14px; height: 14px;"></i>
-                    Contact Us
-                </a>
+            <div style="display:flex;gap:2rem;align-items:center;">
+                <a href="mailto:Jayden.daniiels.5@gmail.com" style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.875rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="mail" style="width:14px;height:14px;"></i>Contact Us</a>
             </div>
         </div>
     </footer>
 
     <script>
         lucide.createIcons();
-
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-            } else {
-                navbar.style.boxShadow = 'none';
-            }
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        const amountInput = document.getElementById('amount');
-        const jaydenAmount = document.getElementById('jayden-amount');
-        const otherAmount = document.getElementById('other-amount');
-        const savings = document.getElementById('savings');
-
-        function updateCalculator() {
-            const amount = parseFloat(amountInput.value) || 0;
-            const otherFees = amount * 0.095;
-            const saved = otherFees;
-
-            jaydenAmount.textContent = '$' + amount.toLocaleString();
-            otherAmount.textContent = '$' + Math.floor(amount - otherFees).toLocaleString();
-            savings.textContent = '$' + Math.floor(saved).toLocaleString();
-        }
-
-        amountInput.addEventListener('input', updateCalculator);
-
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero && scrolled < window.innerHeight) {
-                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
-            }
-        });
+        const mobileMenuBtn=document.getElementById('mobileMenuBtn'),mobileMenu=document.getElementById('mobileMenu'),mobileOverlay=document.getElementById('mobileOverlay');
+        function toggleMenu(){mobileMenu.classList.toggle('active');mobileOverlay.classList.toggle('active')}
+        mobileMenuBtn.addEventListener('click',toggleMenu);mobileOverlay.addEventListener('click',toggleMenu);
+        document.querySelectorAll('.mobile-menu a').forEach(link=>{link.addEventListener('click',()=>{mobileMenu.classList.remove('active');mobileOverlay.classList.remove('active')})});
+        window.addEventListener('scroll',()=>{const navbar=document.getElementById('navbar');if(window.scrollY>50){navbar.style.boxShadow='0 4px 6px -1px rgba(0,0,0,.1)'}else{navbar.style.boxShadow='none'}});
+        document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){e.preventDefault();const target=document.querySelector(this.getAttribute('href'));if(target){target.scrollIntoView({behavior:'smooth',block:'start'})}})});
+        const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible')}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+        document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+        const amountInput=document.getElementById('amount'),jaydenAmount=document.getElementById('jayden-amount'),otherAmount=document.getElementById('other-amount'),savings=document.getElementById('savings');
+        function updateCalculator(){const amount=parseFloat(amountInput.value)||0,otherFees=amount*.095,saved=otherFees;jaydenAmount.textContent='$'+amount.toLocaleString();otherAmount.textContent='$'+Math.floor(amount-otherFees).toLocaleString();savings.textContent='$'+Math.floor(saved).toLocaleString()}
+        amountInput.addEventListener('input',updateCalculator);
+        window.addEventListener('scroll',()=>{const scrolled=window.pageYOffset,hero=document.querySelector('.hero');if(hero&&scrolled<<window.innerHeight){hero.style.backgroundPositionY=scrolled*.5+'px'}});
     </script>
 </body>
 </html>
